@@ -1,0 +1,9 @@
+{{#each model as |artist|}}
+  {{artist-block
+    name=artist.name
+    genres=artist.genres
+    id=artist.id
+    popularity=artist.popularity
+    image=artist.image
+  }}
+{{/each}}

@@ -1,0 +1,17 @@
+  <div>
+    {{#if image}}
+      <img src="{{image}}" width="100" {{action "toggleAlbumInfo"}}/>
+    {{/if}}
+  </div>
+  <div>
+    Name: <a href="{{id}}" target="_blank">{{name}}</a><br>
+    Popularity: {{popularity}}<br>
+  </div>
+  {{#if expandAlbumInfo}}
+    <div>
+    Album Name: <a href="{{albumUrl}}">{{albumName}}</a><br>
+    Album Markets: {{albumMarkets}}<br>
+  </div>
+  {{/if}}
+  <br>
+{{yield}}

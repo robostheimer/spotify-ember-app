@@ -1,0 +1,15 @@
+<h3>Artist: {{model.artist}}</h3>
+
+{{#each model.tracks as |track|}}
+  {{song-block
+    image=track.image
+    name=track.name
+    popularity=track.popularity
+    id=track.external_urls.spotify
+    trackMarkets=track.availableMarkets
+    albumName=track.album.name
+    albumId=track.album.id
+    albumMarkets=track.album.available_markets
+    albumUrl=track.album.external_urls.spotify
+  }}
+{{/each}}
