@@ -1,10 +1,9 @@
-<h3>Artist: {{model.artist}}</h3>
+<h4>{{model.artist}} Radio</h4>
 
 {{spotify-player
-  playlist = model.playlist
+  playlist=model.playlist
 }}
 
-<h4> Most popular {{model.artist}} songs | Digging {{model.artist}}, here's a {{#link-to 'radio' model.artistId}}Recommended Playlist{{/link-to}} | Discover {{#link-to 'related' model.artistId}}other musicians{{/link-to}} like {{model.artist}}</h4>
 {{#each model.tracks as |track|}}
   {{song-block
     image=track.image
@@ -17,4 +16,4 @@
     albumMarkets=track.album.available_markets
     albumUrl=track.album.external_urls.spotify
   }}
-{{/each}}
+  {{/each}}

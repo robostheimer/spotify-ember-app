@@ -15,10 +15,7 @@ export default Ember.Route.extend({
               if(item.images.length > 0) {
                 item.image = item.images[0].url;
               }
-                console.log(data.artists.items);
             });
-
-            console.log(data.artists.items);
             resolve(data.artists.items)
           });
         });

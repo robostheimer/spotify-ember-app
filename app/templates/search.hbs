@@ -1,3 +1,4 @@
+
 {{#each model as |artist|}}
   {{artist-block
     name=artist.name
@@ -6,4 +7,5 @@
     popularity=artist.popularity
     image=artist.image
   }}
+  {{outlet}}
 {{/each}}
