@@ -1,8 +1,11 @@
-<h4>{{model.artist}} Radio</h4>
+<h3>{{model.artist}} Radio</h3>
+
+{{save-playlist artist=model.artist}}
 
 {{spotify-player
   playlist=model.playlist
 }}
+
 
 {{#each model.tracks as |track|}}
   {{song-block

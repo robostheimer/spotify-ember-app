@@ -11,7 +11,7 @@ Router.map(function(){
   this.route('search', {path: 'search/:musician'});
   this.route('related', { path: 'related/:id' });
   this.route('playlist', { path: 'playlist/:id'});
-  this.route('radio', {path: 'radio/:id'});
+  this.route('radio', {path: 'radio/:musician/:id'});
 });
 
 export default Router;
