@@ -1,12 +1,12 @@
 <h3>{{model.artist}} Radio</h3>
 
-{{save-playlist artist=model.artist}}
+{{save-playlist model=model}}
 
 {{spotify-player
   playlist=model.playlist
 }}
 
-
+<ul class="cards">
 {{#each model.tracks as |track|}}
   {{song-block
     image=track.image
@@ -18,5 +18,8 @@
     albumId=track.album.id
     albumMarkets=track.album.available_markets
     albumUrl=track.album.external_urls.spotify
+    artist=track.artist
+    showArtistName=model.showArtistName
   }}
-  {{/each}}
+{{/each}}
+</ul>

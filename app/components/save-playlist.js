@@ -3,12 +3,11 @@ import Ember from 'ember';
 const SCOPE = 'playlist-modify-private playlist-modify-public';
 const CLIENT_ID='6e385b2a58fa42f6832a3a0bc3152c23';
 const TOKEN = localStorage.token;
-const TRACKS = localStorage.tracks;
+// const TRACKS = localStorage.tracks;
 
 export default Ember.Component.extend({
   actions: {
-    savePlaylist(name) {
-      console.log(name);
+    savePlaylist(model) {
       return new Ember.RSVP.Promise(function(resolve,reject) {
         let url = 'https://api.spotify.com/v1/me';
         Ember.$.ajax(url, {
@@ -22,7 +21,7 @@ export default Ember.Component.extend({
             Ember.$.ajax(url, {
           		type: 'POST',
           		data: JSON.stringify({
-          			'name': name +' Ember App Playlist',
+          			'name': model.artist +' Ember App '+model.type+' Playlist',
           			'public': false
           		}),
           		dataType: 'json',
@@ -31,7 +30,8 @@ export default Ember.Component.extend({
           			'Content-Type': 'application/json'
           		},
             }).then(function(data){
-                let url = 'https://api.spotify.com/v1/users/'+username+'/playlists/'+data.id +'/tracks?position=0&uris='+encodeURIComponent(TRACKS);
+              console.log(data)
+                let url = 'https://api.spotify.com/v1/users/'+username+'/playlists/'+data.id +'/tracks?position=0&uris='+encodeURIComponent(model.tracksStr);
                 $.ajax(url, {
                   type: 'POST',
                   processData:false,
@@ -40,7 +40,7 @@ export default Ember.Component.extend({
               			'Content-Type': 'application/json'
               		},
                   success: function() {
-                    alert('This '+name+'radio plalist was added to your Spotify Account!')
+                    alert('This '+model.artist+' '+model.type+' playlist was added to your Spotify Account!')
                   }
               });
             }, function(error){

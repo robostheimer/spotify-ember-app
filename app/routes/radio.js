@@ -14,13 +14,17 @@ export default Ember.Route.extend({
           'Authorization': 'Bearer ' + localStorage.token
         },
       }).then(function(data){
-        let tracks = ''
+        data.tracksStr = ''
         data.playlist = '';
         data.artist = params.musician;
+        data.showArtistName = true;
+        data.type = 'Radio'
         Ember.run(function() {
           let l = data.tracks.length;
           data.tracks.forEach(function(item){
             var x = data.tracks.indexOf(item);
+            item.artist = item.artists[0].name;
+            console.log(item.artist)
             if(item.album.images.length>0)
             {
               item.image = item.album.images[0].url;
@@ -28,12 +32,12 @@ export default Ember.Route.extend({
             data.playlist+=item.id +',';
             if(x<l-1)
             {
-            tracks+='spotify:track:'+item.id+',';
+              data.tracksStr+='spotify:track:'+item.id+',';
             } else {
-              tracks+='spotify:track:'+item.id;
+              data.tracksStr+='spotify:track:'+item.id;
             }
           });
-          localStorage.tracks = tracks;
+          //localStorage.tracks = localStorage.tracks;
           resolve(data)
         });
       }, function(error){

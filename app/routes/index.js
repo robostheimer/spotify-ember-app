@@ -16,7 +16,7 @@ export default Ember.Route.extend({
 
       localStorage.setItem('token', token);
       localStorage.setItem('tokenType', tokenType);
-      //window.close();
+      window.close();
       window.opener.location.pathname = localStorage.pathname;
     }
   },

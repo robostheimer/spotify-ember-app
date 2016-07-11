@@ -8,10 +8,21 @@ export default Ember.Route.extend({
         Ember.run(function() {
           data.playlist = "";
           data.artist = data.tracks[0].artists[0].name;
-          data.artistId = data.tracks[0].artists[0].id
+          data.artistId = data.tracks[0].artists[0].id;
+          data.tracksStr='';
+          data.type = 'Top Tracks';
+          let l = data.tracks.length;
+
           data.tracks.forEach(function(item){
+            var x = data.tracks.indexOf(item);
             if(item.album.images.length > 0) {
               item.image = item.album.images[0].url;
+            }
+            if(x<l-1)
+            {
+              data.tracksStr+='spotify:track:'+item.id+',';
+            } else {
+              data.tracksStr+='spotify:track:'+item.id;
             }
             data.playlist += item.id+',';
           });

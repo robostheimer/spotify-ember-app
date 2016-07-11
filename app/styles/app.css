@@ -1,1 +1,43 @@
-ul {padding: 15px}
+button {
+  background: #2ebd59;
+  color: white;
+  padding: 7px;
+  border-radius: 10px;
+  margin: 15px 0 ;
+  border: 1px solid #999;
+}
+
+ul {
+  padding:0;
+
+}
+
+li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.cards {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  align-items:flex-end;
+}
+
+.card {
+  border: 1px solid #999;
+  margin-bottom: 15px;
+  width: 300px;
+  margin-right: 15px;
+  display: flex;
+  flex-basis: 20%;
+}
+
+.card img {
+  height: 100px;
+}
+
+.card .info {
+    margin: 15px 15px 0;
+}
