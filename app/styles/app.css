@@ -1,9 +1,12 @@
+body{
+  margin: 15px;
+}
 button {
   background: #2ebd59;
   color: white;
   padding: 7px;
   border-radius: 10px;
-  margin: 15px 0 ;
+  margin: 15px 0  15px;
   border: 1px solid #999;
 }
 
@@ -18,11 +21,15 @@ li {
   list-style: none;
 }
 
+iframe {
+  margin-top: 15px;
+}
+
 .cards {
   display: flex;
   flex-flow: row wrap;
-  justify-content: space-around;
-  align-items:flex-end;
+  /*justify-content: space-around;*/
+  /*align-items:flex-end;*/
 }
 
 .card {
@@ -35,7 +42,8 @@ li {
 }
 
 .card img {
-  height: 100px;
+  width: 100px;
+  height: 100%;
 }
 
 .card .info {

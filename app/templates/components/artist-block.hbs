@@ -1,17 +1,19 @@
-{{#if image}}
-  {{#link-to 'artists' artist.id}}
-    <img src="{{image}}" width="100"/>
-  {{/link-to}}
-{{/if}}
-<div>
-  Name: {{name}}<br>
-  {{#if genres}}
-    Genres: {{genres}}<br>
+<li class="card">
+  {{#if image}}
+    {{#link-to 'playlist' id}}
+      <img src="{{image}}" width="100"/>
+    {{/link-to}}
   {{/if}}
-  Popularity: {{popularity}}<br>
-  {{#link-to 'playlist' id}} Listen to Songs by {{name}}{{/link-to}}<br>
-  {{#link-to 'related' id}}Find Related Musicians{{/link-to}}<br>
-  {{#link-to 'radio' name id}}Create {{artist}} radio{{/link-to}}
-</div>
-<br>
-{{yield}}
+  <div class="info">
+    Name: {{name}}<br>
+    {{#if genres}}
+      Genres: {{genres}}<br>
+    {{/if}}
+    Popularity: {{popularity}}<br>
+    {{#link-to 'playlist' id}} Listen to Songs by {{name}}{{/link-to}}<br>
+    {{#link-to 'related' id}}Find Related Musicians{{/link-to}}<br>
+    {{#link-to 'radio' name id}}Create {{artist}} radio{{/link-to}}
+  </div>
+  <br>
+  {{yield}}
+</li>
