@@ -1,12 +1,13 @@
 <h3>Artist: {{model.artist}}</h3>
 
-{{save-playlist model=model}}
 
+<div class="player_button">
 {{spotify-player
   playlist = model.playlist
 }}
-
-<h4> Most popular {{model.artist}} songs | Digging {{model.artist}}, here's a {{#link-to 'radio' model.artist model.artistId}}Recommended Playlist{{/link-to}} | Discover {{#link-to 'related' model.artistId}}other musicians{{/link-to}} like {{model.artist}}</h4>
+{{save-playlist model=model}}
+</div>
+<h4> Most popular {{model.artist}} songs | Digging {{model.artist}}, here's a {{#link-to 'radio' model.artist model.artistId}}Recommended Playlist{{/link-to}} | Discover {{#link-to 'related' model.artist model.artistId}}other musicians{{/link-to}} like {{model.artist}}</h4>
 <ul class="cards">
   {{#each model.tracks as |track|}}
   {{song-block

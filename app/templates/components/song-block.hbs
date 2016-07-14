@@ -1,7 +1,4 @@
-<div class="card">
-    {{#if image}}
-      <img src="{{image}}" width="100" {{action "toggleAlbumInfo"}}/>
-    {{/if}}
+<li class="card song" style="background-image: url({{image}})" {{action 'toggleAlbumInfo'}}>
   <div class="info">
     {{#if showArtistName}}
       Artist: {{artist}}<br>
@@ -13,5 +10,5 @@
     Album Name: <a href="{{albumUrl}}">{{albumName}}</a><br>
   {{/if}}
 </div>
-</div>
+</li>
 {{yield}}
