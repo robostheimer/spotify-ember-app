@@ -44,12 +44,12 @@ export default Ember.Route.extend({
       if(error.statusText === 'Unauthorized') {
           if(window.location.hostname === 'localhost')
           {
-            var http = 'http://localhost:4200';
+            var http = 'http://localhost:4200/';
           } else {
-            var http = 'https://robostheimer.github.io/spotify-ember-app'
+            var http = 'https://robostheimer.github.io/spotify-ember-app/'
           }
           window.open('https://accounts.spotify.com/en/authorize?response_type=token&client_id='+CLIENT_ID+'&scope='+encodeURIComponent(SCOPE)+'&redirect_uri='+http)
-          localStorage.pathname = 'radio/'+params.musician+'/'+params.id
+          localStorage.pathname = http+'radio/'+params.musician+'/'+params.id
         }
       });
     });
