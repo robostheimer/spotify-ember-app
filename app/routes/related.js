@@ -8,19 +8,21 @@ export default Ember.Route.extend({
 
   model(params) {
       let url = 'https://api.spotify.com/v1/artists/'+params.id+'/related-artists';
-      console.log('url')
       return new Ember.RSVP.Promise(function(resolve,reject) {
         Ember.$.getJSON(url).then(function(data){
           Ember.run(function() {
+            data.artist = params.musician;
             data.artists.forEach(function(item){
               if(item.images.length > 0) {
                 item.image = item.images[0].url;
               }
 
             });
+            // if(data.artists.length>10) {
+            //   data.artists = data.artists.slice(0, 9)
+            // }
 
-            console.log(data.artists);
-            resolve(data.artists)
+            resolve(data);
           });
         });
       });

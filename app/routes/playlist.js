@@ -26,6 +26,7 @@ export default Ember.Route.extend({
             }
             data.playlist += item.id+',';
           });
+          console.log(data)
           resolve(data);
         });
       });

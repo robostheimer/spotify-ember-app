@@ -42,7 +42,13 @@ export default Ember.Route.extend({
         });
       }, function(error){
       if(error.statusText === 'Unauthorized') {
-          window.open('https://accounts.spotify.com/en/authorize?response_type=token&client_id='+CLIENT_ID+'&scope='+encodeURIComponent(SCOPE)+'&redirect_uri=http://localhost:4200')
+          if(window.location.hostname === 'localhost')
+          {
+            var http = 'http://localhost:4200';
+          } else {
+            var http = 'https://robostheimer.github.io/spotify-ember-app'
+          }
+          window.open('https://accounts.spotify.com/en/authorize?response_type=token&client_id='+CLIENT_ID+'&scope='+encodeURIComponent(SCOPE)+'&redirect_uri='+http)
           localStorage.pathname = 'radio/'+params.musician+'/'+params.id
         }
       });

@@ -1,16 +1,7 @@
-{{#if image}}
-  {{#link-to 'artists' artist.id}}
-    <img src="{{image}}" width="100"/>
-  {{/link-to}}
-{{/if}}
+<li class="card related" style="background-image: url({{image}})">
+
 <div>
-  Name: {{name}}<br>
-  {{#if genres}}
-    Genres: {{genres}}<br>
-  {{/if}}
-  Popularity: {{popularity}}<br>
-  {{#link-to 'playlist' id}} Listen to Songs by {{name}}{{/link-to}}<br>
-  {{#link-to 'search.related_1' id}}Find Related Musicians{{/link-to}}<br>
-  {{#link-to 'radio' id}}Create {{artist}} radio{{/link-to}}
+  {{name}}
+
 </div>
-<br>
+</li>

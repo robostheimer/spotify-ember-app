@@ -7,7 +7,10 @@ expandAlbumInfo: Ember.computed(function(){
 export default Ember.Component.extend({
   actions: {
     toggleAlbumInfo() {
-    this.toggleProperty('expandAlbumInfo')
+      this.toggleProperty('expandAlbumInfo')
+    },
+    changeOrder() {
+      alert('changed')
     }
   }
 });

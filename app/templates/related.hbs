@@ -1,10 +1,13 @@
-
-{{#each model as |artist|}}
+<h3>Other Artists like {{model.artist}}</h3>
+{{!-- <ul class="cards related"> --}}
+<ul class="cards">
+{{#each model.artists as |artist|}}
+  {{!-- {{artist-block-related --}}
   {{artist-block
     name=artist.name
-    genres=artist.genres
     id=artist.id
     popularity=artist.popularity
     image=artist.image
   }}
 {{/each}}
+</ul>
