@@ -41,7 +41,7 @@ export default Ember.Route.extend({
           resolve(data)
         });
       }, function(error){
-      if(error.statusText === 'Unauthorized') {
+      if(!localStorage.authenticated) {
           if(window.location.hostname === 'localhost')
           {
             var http = 'http://localhost:4200/';
